@@ -26,7 +26,7 @@ import {
   ViroARSceneNavigator
 } from 'react-viro';
 
-import ColorBar from './ColorBar'
+import ColorBar from './js/ColorBar'
 
 /*
  TODO: Insert your API key below
@@ -54,7 +54,7 @@ export default class ViroSample extends Component {
     this.state = {
       navigatorType : defaultNavigatorType,
       sharedProps : sharedProps,
-      color: 'pink',
+      color: 'grey',
     }
     this._getExperienceSelector = this._getExperienceSelector.bind(this);
     this._getARNavigator = this._getARNavigator.bind(this);
