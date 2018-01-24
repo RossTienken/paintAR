@@ -14,7 +14,8 @@ import {
 import COLORS1 from './colors'
 import Carousel from 'react-native-snap-carousel';
 
-const SLIDER_1_FIRST_ITEM = 1
+const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window')
+const startColor = Math.round(COLORS1.length / 2)
 
 export default class ColorBar extends Component {
 
@@ -23,41 +24,46 @@ export default class ColorBar extends Component {
 
     this.state = {
       _changeColor: props._changeColor,
-      slider1ActiveSlide: SLIDER_1_FIRST_ITEM,
+      slider1ActiveSlide: startColor,
       slider1Ref: null
     } // Set initial state here
     this._renderItem = this._renderItem.bind(this)
   }
 
   render() {
-    return (<Carousel
-        ref={(c) => { if (!this.state.slider1Ref) { this.setState({ slider1Ref: c }) } }}
+    return (<View style={styles.views}>
+      <Carousel
+        ref={(c) => { this._carousel = c }}
         data={COLORS1}
+        firstItem={startColor}
         renderItem={this._renderItem}
-        sliderWidth={300}
-        itemWidth={60}
-        inactiveSlideScale={0.95}
+        sliderWidth={viewportWidth}
+        itemWidth={75}
+        itemHeight={75}
+        inactiveSlideScale={0.8}
         inactiveSlideOpacity={1}
         enableMomentum={true}
-        activeSlideAlignment={'start'}
+        activeSlideAlignment={'center'}
         containerCustomStyle={styles.slider}
         contentContainerCustomStyle={styles.sliderContentContainer}
         removeClippedSubviews={false}
+        onSnapToItem={(idx) => this.state._changeColor(COLORS1[idx].color)}
         customAnimationType={'spring'}
         customAnimationOptions={{
           friction: 4,
           tension: 40
         }} />
-      )
+    </View> )
   }
 
-  _renderItem ({item, index}) {
-    let canCol = `can${item.color}`
-    let lowerC = item.color.toLowerCase()
+  _renderItem({item, index}) {
       return (
-        <TouchableOpacity style={styles.canCol} onPress={this.state._changeColor(lowerC)}>
+        <TouchableOpacity style={styles.box} onPress={() => { this._carousel.snapToItem(index) }}>
         <Image
-        style={styles.img}
+        style={{
+        width: 72,
+        height: 72,
+        backgroundColor: 'transparent'}}
         source={item.img} />
         </TouchableOpacity>
       )
@@ -66,65 +72,23 @@ export default class ColorBar extends Component {
 }
 
 var styles = StyleSheet.create({
-  img: {
-    height: 45,
-    width: 45,
-  },
-  canBlack: {
+  views: {
     position: 'absolute',
-    bottom: 5,
-    left: '2%',
-    width: 45,
-    height: 45,
+    bottom: 25,
+    backgroundColor: 'transparent',
   },
-  canBlue: {
-    position: 'absolute',
-    bottom: 5,
-    left: '16%',
-    width: 45,
-    height: 45,
-  },
-  canRed: {
-    position: 'absolute',
-    bottom: 5,
-    left: '30%',
-    width: 45,
-    height: 45,
-  },
-  canPurple: {
-    position: 'absolute',
-    bottom: 5,
-    left: '44%',
-    width: 45,
-    height: 45,
-  },
-  canGreen: {
-    position: 'absolute',
-    bottom: 5,
-    left: '58%',
-    width: 45,
-    height: 45,
-  },
-  canYellow: {
-    position: 'absolute',
-    bottom: 5,
-    left: '72%',
-    width: 45,
-    height: 45,
-  },
-  canWhite: {
-    position: 'absolute',
-    bottom: 5,
-    left: '86%',
-    width: 45,
-    height: 45,
+  box: {
+    height: 75,
+    width: 75,
+    backgroundColor: 'transparent',
   },
   slider: {
-        marginTop: 15
-    },
-    sliderContentContainer: {
-        paddingVertical: 10 // for custom animation
-    },
+    marginTop: 10,
+  },
+  sliderContentContainer: {
+    paddingVertical: 20, // for custom animation
+    backgroundColor: 'transparent',
+  },
 })
 
 module.exports = ColorBar

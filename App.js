@@ -54,7 +54,7 @@ export default class ViroSample extends Component {
     this.state = {
       navigatorType : defaultNavigatorType,
       sharedProps : sharedProps,
-      color: 'grey',
+      color: 'green',
     }
     this._getExperienceSelector = this._getExperienceSelector.bind(this);
     this._getARNavigator = this._getARNavigator.bind(this);
@@ -122,14 +122,15 @@ export default class ViroSample extends Component {
 
       <TouchableOpacity onPress={() => console.log(this.state)}
       style={{ position: 'absolute',
-      bottom: 75,
-      left: '40%',
+      bottom: 46,
+      left: '39.5%',
       width: 75,
       height: 75,
-      borderWidth: 2,
+      borderWidth: 4,
       borderColor: 'grey',
       borderRadius: 50,
-      backgroundColor: this.state.color }} >
+      zIndex: 1000,
+      backgroundColor: 'transparent' }} >
       </TouchableOpacity>
       <ColorBar _changeColor={this._changeColor} />
 
@@ -155,12 +156,11 @@ export default class ViroSample extends Component {
   }
 
   _changeColor(newColor) {
-    return () => {
-      this.setState({
-        color: newColor,
-      })
-    }
+    this.setState({
+      color: newColor,
+    })
   }
+
 
   // This function "exits" Viro by setting the navigatorType to UNSET.
   _exitViro() {

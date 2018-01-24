@@ -1,30 +1,30 @@
 const COLORS1 = [
   {
-    color: 'Black',
+    color: 'black',
     img: require('./res/sprayCans/canBlack.png'),
   },
   {
-    color: 'Blue',
+    color: 'blue',
     img: require('./res/sprayCans/canBlue.png'),
   },
   {
-    color: 'Red',
+    color: 'red',
     img: require('./res/sprayCans/canRed.png'),
   },
   {
-    color: 'Purple',
+    color: 'purple',
     img: require('./res/sprayCans/canPurple.png'),
   },
   {
-    color: 'Green',
+    color: 'green',
     img: require('./res/sprayCans/canGreen.png'),
   },
   {
-    color: 'Yellow',
+    color: 'yellow',
     img: require('./res/sprayCans/canYellow.png'),
   },
   {
-    color: 'White',
+    color: 'white',
     img: require('./res/sprayCans/canWhite.png'),
   },
 ]
