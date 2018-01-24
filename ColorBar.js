@@ -14,61 +14,57 @@ import {
 
 export default class ColorBar extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.state = {} // Set initial state here
+    this.state = {
+      _changeColor: props._changeColor,
+    } // Set initial state here
   }
+
 
   render() {
     return (<View>
-      <TouchableOpacity onPress={this._changeColor}>
+      <TouchableOpacity onPress={this.state._changeColor('black')}>
         <Image
           style={styles.canBlack}
           source={require('./js/res/sprayCans/canBlack.png')}
-          color={'black'}
           />
       </TouchableOpacity>
-      <TouchableOpacity onPress={this._changeColor}>
+      <TouchableOpacity onPress={this.state._changeColor('blue')}>
         <Image
           style={styles.canBlue}
           source={require('./js/res/sprayCans/canBlue.png')}
-          color={'blue'}
           />
       </TouchableOpacity>
-      <TouchableOpacity onPress={this._changeColor}>
+      <TouchableOpacity onPress={this.state._changeColor('red')}>
         <Image
           style={styles.canRed}
           source={require('./js/res/sprayCans/canRed.png')}
-          color={'red'}
           />
       </TouchableOpacity>
-      <TouchableOpacity onPress={this._changeColor}>
+      <TouchableOpacity onPress={this.state._changeColor('purple')}>
         <Image
           style={styles.canPurple}
           source={require('./js/res/sprayCans/canPurple.png')}
-          color={'purple'}
           />
       </TouchableOpacity>
-      <TouchableOpacity onPress={this._changeColor}>
+      <TouchableOpacity onPress={this.state._changeColor('green')}>
         <Image
           style={styles.canGreen}
           source={require('./js/res/sprayCans/canGreen.png')}
-          color={'green'}
           />
       </TouchableOpacity>
-      <TouchableOpacity onPress={this._changeColor}>
+      <TouchableOpacity onPress={this.state._changeColor('yellow')}>
         <Image
           style={styles.canYellow}
           source={require('./js/res/sprayCans/canYellow.png')}
-          color={'yellow'}
           />
       </TouchableOpacity>
-      <TouchableOpacity onPress={this._changeColor}>
+      <TouchableOpacity onPress={this.state._changeColor('white')}>
         <Image
           style={styles.canWhite}
           source={require('./js/res/sprayCans/canWhite.png')}
-          color={'white'}
           />
       </TouchableOpacity>
     </View>);

@@ -60,7 +60,8 @@ export default class ViroSample extends Component {
     this._getARNavigator = this._getARNavigator.bind(this);
     this._getVRNavigator = this._getVRNavigator.bind(this);
     this._getExperienceButtonOnPress = this._getExperienceButtonOnPress.bind(this);
-    this._exitViro = this._exitViro.bind(this);
+    this._exitViro = this._exitViro.bind(this)
+    this._changeColor = this._changeColor.bind(this);
   }
 
   // Replace this function with the contents of _getVRNavigator() or _getARNavigator()
@@ -108,7 +109,17 @@ export default class ViroSample extends Component {
     return (<View style={{ flex: 1 }}>
       <ViroARSceneNavigator {...this.state.sharedProps}
         initialScene={{scene: InitialARScene}} />
-      <View style={localStyles.crosshair}/>
+
+      <View style={{ position: 'absolute',
+      top: (Dimensions.get('window').height / 2),
+      left: '47.5%',
+      width: 20,
+      height: 20,
+      borderRadius: 15,
+      borderWidth: 2,
+      backgroundColor: 'transparent',
+      borderColor: this.state.color, }} />
+
       <TouchableOpacity onPress={() => console.log(this.state)}
       style={{ position: 'absolute',
       bottom: 75,
@@ -120,7 +131,8 @@ export default class ViroSample extends Component {
       borderRadius: 50,
       backgroundColor: this.state.color }} >
       </TouchableOpacity>
-      <ColorBar />
+      <ColorBar _changeColor={this._changeColor} />
+      
     </View>);
   }
 
@@ -142,10 +154,12 @@ export default class ViroSample extends Component {
     }
   }
 
-  _changeColor = () => {
-    this.setState({
-      color: this.color,
-    })
+  _changeColor(newColor) {
+    return () => {
+      this.setState({
+        color: newColor,
+      })
+    }
   }
 
   // This function "exits" Viro by setting the navigatorType to UNSET.
