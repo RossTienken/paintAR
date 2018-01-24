@@ -60,11 +60,11 @@ export default class ColorBar extends Component {
       return (
         <TouchableOpacity style={styles.box} onPress={() => { this._carousel.snapToItem(index) }}>
         <Image
-        style={{
-        width: 72,
-        height: 72,
-        backgroundColor: 'transparent'}}
-        source={item.img} />
+          style={{
+          width: 72,
+          height: 72,
+          backgroundColor: 'transparent'}}
+          source={item.img} />
         </TouchableOpacity>
       )
    }

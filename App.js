@@ -47,6 +47,9 @@ var AR_NAVIGATOR_TYPE = "AR";
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
 var defaultNavigatorType = UNSET;
 
+import COLORS1 from './js/colors'
+const startColor = COLORS1[Math.round(COLORS1.length / 2)].color
+
 export default class ViroSample extends Component {
   constructor() {
     super();
@@ -54,7 +57,7 @@ export default class ViroSample extends Component {
     this.state = {
       navigatorType : defaultNavigatorType,
       sharedProps : sharedProps,
-      color: 'green',
+      color: startColor,
     }
     this._getExperienceSelector = this._getExperienceSelector.bind(this);
     this._getARNavigator = this._getARNavigator.bind(this);
