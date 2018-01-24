@@ -120,7 +120,7 @@ export default class ViroSample extends Component {
       backgroundColor: 'transparent',
       borderColor: this.state.color, }} />
 
-      <TouchableOpacity onPress={() => console.log(this.state)}
+      <TouchableOpacity onPress={() => console.log('PAINTING')}
       style={{ position: 'absolute',
       bottom: 46,
       left: '39.5%',
