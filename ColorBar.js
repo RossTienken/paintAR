@@ -25,45 +25,45 @@ export default class ColorBar extends Component {
 
   render() {
     return (<View>
-      <TouchableOpacity onPress={this.state._changeColor('black')}>
+      <TouchableOpacity style={styles.canBlack} onPress={this.state._changeColor('black')}>
         <Image
-          style={styles.canBlack}
+          style={styles.img}
           source={require('./js/res/sprayCans/canBlack.png')}
           />
       </TouchableOpacity>
-      <TouchableOpacity onPress={this.state._changeColor('blue')}>
+      <TouchableOpacity style={styles.canBlue} onPress={this.state._changeColor('blue')}>
         <Image
-          style={styles.canBlue}
+          style={styles.img}
           source={require('./js/res/sprayCans/canBlue.png')}
           />
       </TouchableOpacity>
-      <TouchableOpacity onPress={this.state._changeColor('red')}>
+      <TouchableOpacity style={styles.canRed} onPress={this.state._changeColor('red')}>
         <Image
-          style={styles.canRed}
+          style={styles.img}
           source={require('./js/res/sprayCans/canRed.png')}
           />
       </TouchableOpacity>
-      <TouchableOpacity onPress={this.state._changeColor('purple')}>
+      <TouchableOpacity style={styles.canPurple} onPress={this.state._changeColor('purple')}>
         <Image
-          style={styles.canPurple}
+        style={styles.img}
           source={require('./js/res/sprayCans/canPurple.png')}
           />
       </TouchableOpacity>
-      <TouchableOpacity onPress={this.state._changeColor('green')}>
+      <TouchableOpacity style={styles.canGreen} onPress={this.state._changeColor('green')}>
         <Image
-          style={styles.canGreen}
+          style={styles.img}
           source={require('./js/res/sprayCans/canGreen.png')}
           />
       </TouchableOpacity>
-      <TouchableOpacity onPress={this.state._changeColor('yellow')}>
+      <TouchableOpacity style={styles.canYellow} onPress={this.state._changeColor('yellow')}>
         <Image
-          style={styles.canYellow}
+          style={styles.img}
           source={require('./js/res/sprayCans/canYellow.png')}
           />
       </TouchableOpacity>
-      <TouchableOpacity onPress={this.state._changeColor('white')}>
+      <TouchableOpacity style={styles.canWhite} onPress={this.state._changeColor('white')}>
         <Image
-          style={styles.canWhite}
+          style={styles.img}
           source={require('./js/res/sprayCans/canWhite.png')}
           />
       </TouchableOpacity>
@@ -73,6 +73,10 @@ export default class ColorBar extends Component {
 }
 
 var styles = StyleSheet.create({
+  img: {
+    height: 45,
+    width: 45,
+  },
   canBlack: {
     position: 'absolute',
     bottom: 5,

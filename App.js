@@ -111,7 +111,7 @@ export default class ViroSample extends Component {
         initialScene={{scene: InitialARScene}} />
 
       <View style={{ position: 'absolute',
-      top: (Dimensions.get('window').height / 2),
+      top: '40%',
       left: '47.5%',
       width: 20,
       height: 20,
@@ -132,7 +132,7 @@ export default class ViroSample extends Component {
       backgroundColor: this.state.color }} >
       </TouchableOpacity>
       <ColorBar _changeColor={this._changeColor} />
-      
+
     </View>);
   }
 
@@ -222,16 +222,6 @@ var localStyles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#fff',
-  },
-  crosshair: {
-    position: 'absolute',
-    top: (Dimensions.get('window').height / 2),
-    left: '47.5%',
-    width: 20,
-    height: 20,
-    borderRadius: 15,
-    borderWidth: 2,
-    backgroundColor: 'transparent',
   },
 });
 
