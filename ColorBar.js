@@ -20,13 +20,6 @@ export default class ColorBar extends Component {
     this.state = {} // Set initial state here
   }
 
-  _changeColor = () => {
-    this.setState({
-      color: this.color,
-    })
-    console.log(this.state.color)
-  }
-
   render() {
     return (<View>
       <TouchableOpacity onPress={this._changeColor}>

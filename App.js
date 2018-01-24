@@ -54,7 +54,7 @@ export default class ViroSample extends Component {
     this.state = {
       navigatorType : defaultNavigatorType,
       sharedProps : sharedProps,
-      color: 'grey',
+      color: 'pink',
     }
     this._getExperienceSelector = this._getExperienceSelector.bind(this);
     this._getARNavigator = this._getARNavigator.bind(this);
@@ -109,8 +109,16 @@ export default class ViroSample extends Component {
       <ViroARSceneNavigator {...this.state.sharedProps}
         initialScene={{scene: InitialARScene}} />
       <View style={localStyles.crosshair}/>
-      <TouchableOpacity onPress={this._changeColor()}>
-        <Image style={localStyles.button}/>
+      <TouchableOpacity onPress={() => console.log(this.state)}
+      style={{ position: 'absolute',
+      bottom: 75,
+      left: '40%',
+      width: 75,
+      height: 75,
+      borderWidth: 2,
+      borderColor: 'grey',
+      borderRadius: 50,
+      backgroundColor: this.state.color }} >
       </TouchableOpacity>
       <ColorBar />
     </View>);
@@ -132,6 +140,12 @@ export default class ViroSample extends Component {
         navigatorType : navigatorType
       })
     }
+  }
+
+  _changeColor = () => {
+    this.setState({
+      color: this.color,
+    })
   }
 
   // This function "exits" Viro by setting the navigatorType to UNSET.
@@ -198,21 +212,12 @@ var localStyles = StyleSheet.create({
   crosshair: {
     position: 'absolute',
     top: (Dimensions.get('window').height / 2),
-    left: (Dimensions.get('window').width / 2),
+    left: '47.5%',
     width: 20,
     height: 20,
     borderRadius: 15,
-    borderWidth: 1,
-    backgroundColor: 'grey',
-  },
-  button: {
-    position: 'absolute',
-    bottom: 75,
-    left: '50%',
-    width: 50,
-    height: 50,
-    borderRadius: '50%',
-    backgroundColor: { this.state.color },
+    borderWidth: 2,
+    backgroundColor: 'transparent',
   },
 });
 
