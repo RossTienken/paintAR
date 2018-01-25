@@ -12,10 +12,12 @@ import {
   Viro3DObject,
   ViroAmbientLight,
   ViroSpotLight,
+  ViroARPlane,
   ViroARPlaneSelector,
   ViroNode,
   ViroButton,
   ViroAnimations,
+  ViroSurface,
 } from 'react-viro';
 
 
@@ -30,20 +32,37 @@ export default class HelloWorldSceneAR extends Component {
   }
 
   render() {
-    return (
-      <ViroARScene onTrackingInitialized={()=>{this.setState({text : "Hello Brian!"})}}>
+    return ( <ViroARScene>
+    <ViroARPlane minHeight={0} minWidth={0}>
+      <ViroSpotLight
+        innerAngle={10}
+        outerAngle={45}
+        direction={[0,-1,-.2]}
+        position={[0, 3, 0]}
+        color="#ffffff"
+        castsShadow={true}
+        influenceBitMask={2}
+        shadowMapSize={2048}
+        shadowNearZ={2}
+        shadowFarZ={5}
+        shadowOpacity={.7} />
 
-        <ViroAmbientLight color={"#aaaaaa"} />
+        <Viro3DObject
+          source={require('../res/emoji_smile/emoji_smile.vrx')}
+          position={[0, .2, 0]}
+          scale={[.2, .2, .2]}
+          type="VRX"
+          lightReceivingBitMask={3}
+          shadowCastingBitMask={2}/>
 
-        <ViroSpotLight
-          innerAngle={5}
-          outerAngle={90}
-          direction={[0,-1,-.2]}
-          position={[0, 3, 1]}
-          color="#ffffff"
-          castsShadow={true} />
+        <ViroSurface
+          rotation={[-90,0,0]}
+          width={5} height={5}
+          arShadowReceiver={true}
+          lightReceivingBitMask={2} />
 
-      </ViroARScene>
+      </ViroARPlane>
+    </ViroARScene>
     );
   }
 }
