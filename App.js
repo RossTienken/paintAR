@@ -26,7 +26,7 @@ import {
   ViroARSceneNavigator
 } from 'react-viro';
 
-import ColorBar from './js/ColorBar'
+import ColorBar from './js/components/ColorBar'
 
 /*
  TODO: Insert your API key below
@@ -36,8 +36,8 @@ var sharedProps = {
 }
 
 // Sets the default scene you want for AR and VR
-var InitialARScene = require('./js/HelloWorldSceneAR');
-var InitialVRScene = require('./js/HelloWorldScene');
+var InitialARScene = require('./js/components/HelloWorldSceneAR');
+var InitialVRScene = require('./js/components/HelloWorldScene');
 
 var UNSET = "UNSET";
 var VR_NAVIGATOR_TYPE = "VR";
@@ -47,7 +47,7 @@ var AR_NAVIGATOR_TYPE = "AR";
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
 var defaultNavigatorType = UNSET;
 
-import COLORS1 from './js/colors'
+import COLORS1 from './js/components/colors'
 const startColor = COLORS1[Math.round(COLORS1.length / 2)].color
 
 export default class ViroSample extends Component {
