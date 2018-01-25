@@ -74,7 +74,7 @@ export default class ColorBar extends Component {
 var styles = StyleSheet.create({
   views: {
     position: 'absolute',
-    bottom: '2%',
+    bottom: 25,
     backgroundColor: 'transparent',
   },
   box: {

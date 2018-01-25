@@ -127,7 +127,7 @@ export default class ViroSample extends Component {
 
       <TouchableOpacity onPress={() => console.log('PAINTING')}
       style={{ position: 'absolute',
-      bottom: '5%',
+      bottom: 45,
       left: viewportWidth/2-40,
       width: 80,
       height: 80,
