@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import COLORS1 from './colors'
-import Carousel from 'react-native-snap-carousel';
+import Carousel from 'react-native-snap-carousel'
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window')
 const startColor = Math.round(COLORS1.length / 2)
@@ -38,8 +38,8 @@ export default class ColorBar extends Component {
         firstItem={startColor}
         renderItem={this._renderItem}
         sliderWidth={viewportWidth}
-        itemWidth={75}
-        itemHeight={75}
+        itemWidth={80}
+        itemHeight={80}
         inactiveSlideScale={0.8}
         inactiveSlideOpacity={1}
         enableMomentum={true}
@@ -61,9 +61,9 @@ export default class ColorBar extends Component {
         <TouchableOpacity style={styles.box} onPress={() => { this._carousel.snapToItem(index) }}>
         <Image
           style={{
-          width: 72,
-          height: 72,
-          backgroundColor: 'transparent'}}
+            height: 76,
+            width: 76,
+            backgroundColor: 'transparent'}}
           source={item.img} />
         </TouchableOpacity>
       )
@@ -74,12 +74,15 @@ export default class ColorBar extends Component {
 var styles = StyleSheet.create({
   views: {
     position: 'absolute',
-    bottom: 25,
+    bottom: '2%',
     backgroundColor: 'transparent',
   },
   box: {
-    height: 75,
-    width: 75,
+    height: 80,
+    width: 80,
+    borderWidth: 2,
+    borderColor: 'transparent',
+    borderRadius: 50,
     backgroundColor: 'transparent',
   },
   slider: {

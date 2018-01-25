@@ -28,6 +28,8 @@ import {
 
 import ColorBar from './js/components/ColorBar'
 
+const { width: viewportWidth } = Dimensions.get('window')
+
 /*
  TODO: Insert your API key below
  */
@@ -115,7 +117,7 @@ export default class ViroSample extends Component {
 
       <View style={{ position: 'absolute',
       top: '40%',
-      left: '47.5%',
+      left: viewportWidth/2-10,
       width: 20,
       height: 20,
       borderRadius: 15,
@@ -125,10 +127,10 @@ export default class ViroSample extends Component {
 
       <TouchableOpacity onPress={() => console.log('PAINTING')}
       style={{ position: 'absolute',
-      bottom: 46,
-      left: '39.5%',
-      width: 75,
-      height: 75,
+      bottom: '5%',
+      left: viewportWidth/2-40,
+      width: 80,
+      height: 80,
       borderWidth: 4,
       borderColor: 'grey',
       borderRadius: 50,
