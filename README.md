@@ -50,5 +50,5 @@
 
 [Graffiti Font](https://fonts.google.com/specimen/Fruktur) or something similar for the home-screen logo
 
-Color scheme to be decided 
+Color scheme to be decided - thinking bold, primary colors
 
