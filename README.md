@@ -46,3 +46,9 @@
 
 * [Map](https://balsamiq.cloud/sxjyx/pvyfo/r8AEC)
 
+###### Style Guide
+
+[Graffiti Font](https://fonts.google.com/specimen/Fruktur) or something similar for the home-screen logo
+
+Color scheme to be decided 
+
