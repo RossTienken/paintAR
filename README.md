@@ -11,20 +11,29 @@
 ##############ROUTES#################
 
 Auth Routes
+
 POST /user
+
 GET /user
 
 
 Adding and getting model routes
+
 POST /model
+
 GET /model
+
 PATCH /model
+
 DELETE /model
 
 
 Location routes
+
 POST /locations
+
 GET /locations
+
 GET /locations/close
 
 #####################################
