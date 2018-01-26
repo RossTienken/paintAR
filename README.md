@@ -40,6 +40,9 @@
 
 ###### Wireframes
 
-[Login](https://balsamiq.cloud/sxjyx/pvyfo/r2278)
+* [Login](https://balsamiq.cloud/sxjyx/pvyfo/r2278)
 
+* [Paint](https://balsamiq.cloud/sxjyx/pvyfo/rD5B6)
+
+* [Map](https://balsamiq.cloud/sxjyx/pvyfo/r8AEC)
 
