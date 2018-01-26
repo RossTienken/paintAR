@@ -8,34 +8,34 @@
 
 [Database Schema](https://balsamiq.cloud/sxjyx/phz0c/rBBD3)
 
-##############ROUTES#################
+##### ROUTES
 
-Auth Routes
+###### Auth Routes
 
-POST /user
+* POST /user
 
-GET /user
-
-
-
-Adding and getting model routes
-
-POST /model
-
-GET /model
-
-PATCH /model
-
-DELETE /model
+* GET /user
 
 
 
-Location routes
+###### Adding and getting model routes
 
-POST /locations
+* POST /model
 
-GET /locations
+* GET /model
 
-GET /locations/close
+* PATCH /model
 
-#####################################
+* DELETE /model
+
+
+
+###### Location routes
+
+* POST /locations
+
+* GET /locations
+
+* GET /locations/close
+
+
