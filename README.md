@@ -2,7 +2,9 @@
 
 ## *Ross Tienken, Sean Bonorden, Brian Kracha, Patrick Glynn*
 
-####Planning:
+#### Planning:
 
 [Waffle.io](https://waffle.io/RossTienken/paintAR)
+
+
 
