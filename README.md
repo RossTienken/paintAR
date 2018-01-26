@@ -17,6 +17,7 @@ POST /user
 GET /user
 
 
+
 Adding and getting model routes
 
 POST /model
@@ -26,6 +27,7 @@ GET /model
 PATCH /model
 
 DELETE /model
+
 
 
 Location routes
