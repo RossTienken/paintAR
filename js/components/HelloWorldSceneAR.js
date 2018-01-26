@@ -18,6 +18,7 @@ import {
   ViroButton,
   ViroAnimations,
   ViroSurface,
+  ViroPolyline,
 } from 'react-viro';
 
 
@@ -34,6 +35,7 @@ export default class HelloWorldSceneAR extends Component {
   render() {
     return ( <ViroARScene>
     <ViroARPlane minHeight={0} minWidth={0}>
+
       <ViroSpotLight
         innerAngle={10}
         outerAngle={45}
@@ -47,14 +49,6 @@ export default class HelloWorldSceneAR extends Component {
         shadowFarZ={5}
         shadowOpacity={.7} />
 
-        <Viro3DObject
-          source={require('../res/emoji_smile/emoji_smile.vrx')}
-          position={[0, .2, 0]}
-          scale={[.2, .2, .2]}
-          type="VRX"
-          lightReceivingBitMask={3}
-          shadowCastingBitMask={2}/>
-
         <ViroSurface
           rotation={[-90,0,0]}
           width={5} height={5}
@@ -62,10 +56,18 @@ export default class HelloWorldSceneAR extends Component {
           lightReceivingBitMask={2} />
 
       </ViroARPlane>
+
+    
     </ViroARScene>
     );
   }
 }
+
+ViroMaterials.createMaterials({
+  red: {
+     diffuseColor: 'red',
+   }
+});
 
 var styles = StyleSheet.create({
   helloWorldTextStyle: {

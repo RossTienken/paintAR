@@ -7,7 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   AppRegistry,
   Text,
@@ -19,12 +19,14 @@ import {
   Button,
   Image,
   TouchableOpacity,
-} from 'react-native';
+} from 'react-native'
 
 import {
-  ViroSceneNavigator,
-  ViroARSceneNavigator
-} from 'react-viro';
+  ViroARSceneNavigator,
+  Viro3DObject,
+  ViroPolyline,
+  ViroMaterials,
+} from 'react-viro'
 
 import ColorBar from './js/components/ColorBar'
 
@@ -38,75 +40,35 @@ var sharedProps = {
 }
 
 // Sets the default scene you want for AR and VR
-var InitialARScene = require('./js/components/HelloWorldSceneAR');
-var InitialVRScene = require('./js/components/HelloWorldScene');
+var InitialARScene = require('./js/components/HelloWorldSceneAR')
 
-var UNSET = "UNSET";
-var VR_NAVIGATOR_TYPE = "VR";
-var AR_NAVIGATOR_TYPE = "AR";
+
+var AR_NAVIGATOR_TYPE = "AR"
 
 // This determines which type of experience to launch in, or UNSET, if the user should
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
-var defaultNavigatorType = UNSET;
+var defaultNavigatorType = AR_NAVIGATOR_TYPE
 
 import COLORS1 from './js/components/colors'
 const startColor = COLORS1[Math.round(COLORS1.length / 2)].color
 
 export default class ViroSample extends Component {
   constructor() {
-    super();
+    super()
 
     this.state = {
       navigatorType : defaultNavigatorType,
       sharedProps : sharedProps,
       color: startColor,
     }
-    this._getExperienceSelector = this._getExperienceSelector.bind(this);
-    this._getARNavigator = this._getARNavigator.bind(this);
-    this._getVRNavigator = this._getVRNavigator.bind(this);
-    this._getExperienceButtonOnPress = this._getExperienceButtonOnPress.bind(this);
+
+    this._getARNavigator = this._getARNavigator.bind(this)
+    this._changeColor = this._changeColor.bind(this)
     this._exitViro = this._exitViro.bind(this)
-    this._changeColor = this._changeColor.bind(this);
   }
 
-  // Replace this function with the contents of _getVRNavigator() or _getARNavigator()
-  // if you are building a specific type of experience.
   render() {
-    if (this.state.navigatorType == UNSET) {
-      return this._getExperienceSelector();
-    } else if (this.state.navigatorType == VR_NAVIGATOR_TYPE) {
-      return this._getVRNavigator();
-    } else if (this.state.navigatorType == AR_NAVIGATOR_TYPE) {
-      return this._getARNavigator();
-    }
-  }
-
-  // Presents the user with a choice of an AR or VR experience
-  _getExperienceSelector() {
-    return (
-      <View style={localStyles.outer} >
-        <View style={localStyles.inner} >
-
-          <Text style={localStyles.titleText}>
-            Choose your desired experience:
-          </Text>
-
-          <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'} >
-
-            <Text style={localStyles.buttonText}>AR</Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(VR_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'} >
-
-            <Text style={localStyles.buttonText}>VR</Text>
-          </TouchableHighlight>
-        </View>
-      </View>
-    );
+    return this._getARNavigator()
   }
 
   // Returns the ViroARSceneNavigator which will start the AR experience
@@ -125,7 +87,7 @@ export default class ViroSample extends Component {
       backgroundColor: 'transparent',
       borderColor: this.state.color, }} />
 
-      <TouchableOpacity onPress={() => console.log('PAINTING')}
+      <TouchableOpacity onPress={() => console.log('press')}
       style={{ position: 'absolute',
       bottom: 45,
       left: viewportWidth/2-40,
@@ -139,25 +101,7 @@ export default class ViroSample extends Component {
       </TouchableOpacity>
       <ColorBar _changeColor={this._changeColor} />
 
-    </View>);
-  }
-
-  // Returns the ViroSceneNavigator which will start the VR experience
-  _getVRNavigator() {
-    return (
-      <ViroSceneNavigator {...this.state.sharedProps}
-        initialScene={{scene: InitialVRScene}} onExitViro={this._exitViro}/>
-    );
-  }
-
-  // This function returns an anonymous/lambda function to be used
-  // by the experience selector buttons
-  _getExperienceButtonOnPress(navigatorType) {
-    return () => {
-      this.setState({
-        navigatorType : navigatorType
-      })
-    }
+    </View>)
   }
 
   _changeColor(newColor) {
@@ -166,14 +110,14 @@ export default class ViroSample extends Component {
     })
   }
 
-
-  // This function "exits" Viro by setting the navigatorType to UNSET.
+  // This function "exits" Viro by setting the navigatorType to AR_NAVIGATOR_TYPE.
   _exitViro() {
     this.setState({
-      navigatorType : UNSET
+      navigatorType : AR_NAVIGATOR_TYPE
     })
   }
 }
+
 
 var localStyles = StyleSheet.create({
   viroContainer :{
@@ -228,6 +172,6 @@ var localStyles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#fff',
   },
-});
+})
 
 module.exports = ViroSample
